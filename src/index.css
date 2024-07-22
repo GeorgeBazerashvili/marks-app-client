@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  list-style: none;
+  gap: 2rem;
+}
+
+.wrapper1 {
+  width: min(1200px, 95%);
+  margin-inline: auto
+}
+.wrapper {
+  width: min(95%, 1200px);
+  margin-inline: auto;
+}
+
+.register-main {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(12, 13, 20);
+}
+
+.register-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  justify-self: center;
+  margin-inline: auto;
+}
+
+.register-div h1 {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.register-form div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 1.4rem;
+  width: 100%;
+  margin-bottom: 1.4rem;
+}
+
+.register-form {
+  background: rgb(9, 8, 15);
+  border: 5px solid rgb(18, 19, 19);
+  border-radius: .6rem;
+  padding-inline: 1.5rem;
+  padding-block: 2.2rem;
+  color: white;
+  width: min(100%, 27rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.register-form div input {
+  padding-left: .5rem;
+  flex: 2;
+  padding-block: .6rem;
+  color: black;
+  border: 1px solid black;
+  background-color: white;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+.register-form div label {
+  flex: 1;
+  text-shadow: 2px 2px 2px black;
+}
+
+.password-div {
+  margin-bottom: 0
+}
+
+.register-form button {
+  font-size: 1.4rem;
+  width: 100%;
+  padding-block: .5rem;
+  background: rgb(21, 21, 36);
+  color: white;
+  border: 2px solid rgb(1, 1, 85);
+  font-weight: bold;
+  cursor: pointer
+}
+
+.register-form p {
+  margin-top: .7rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.link {
+  color: rgb(0, 106, 255);
+}
+
+@media (min-width: 1200px) {
+  .list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
