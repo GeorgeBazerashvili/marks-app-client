@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { Source } from '../App';
 
 function Register() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
+    
+    const source = useContext(Source)
+    const {localToken, setLocalToken} = source
     const navigate = useNavigate();
 
     async function sendRegisterInfo(e) {
@@ -14,8 +17,13 @@ function Register() {
         try {
           await axios.post("/auth/register", {username, password})
           .then(res => {
-            localStorage.setItem("token", res.data.token);
-            navigate("/")
+            if(res.data.token) {
+              localStorage.setItem("token", res.data.token);
+              setLocalToken(res.data.token)
+              navigate("/")
+            } else {
+              console.log("no token is provided")
+            }
           })
         } catch (error) {
           console.log(error.message)

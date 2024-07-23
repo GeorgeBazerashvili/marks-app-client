@@ -108,6 +108,16 @@
   color: rgb(0, 106, 255);
 }
 
+.error-page {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.error-page h1 {
+  text-align: center;
+}
+
 @media (min-width: 1200px) {
   .list {
     grid-template-columns: 1fr 1fr 1fr 1fr;

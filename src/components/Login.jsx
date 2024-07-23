@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { Source } from "../App"
 
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const navigate = useNavigate();
+    const source = useContext(Source)
+    const {localToken, setLocalToken, isAdmin, setIsAdmin} = source
 
     async function sendLoginInfo(e) {
         e.preventDefault();
@@ -14,8 +17,19 @@ function Login() {
         try {
           await axios.post("/auth/login", {username, password})
                 .then(res => {
+                  if(res.data.token) {
                     localStorage.setItem("token", res.data.token);
-                    
+                    setLocalToken(res.data.token)
+
+                    if(res.data.isAdmin === true) {
+                      localStorage.setItem("admin", true)
+                      setIsAdmin(localStorage.getItem("admin"))
+                      navigate("/admin")
+                    } else {
+                      setIsAdmin(false)
+                      navigate("/")
+                    }
+                  }
                 })
                 .catch(error => console.error(error))
         } catch (error) {
