@@ -10,7 +10,7 @@ import PageNotFound from "./components/PageNotFound";
 export const Source = createContext(null);
 
 function App() {
-  axios.defaults.baseURL = "http://localhost:3000";
+  axios.defaults.baseURL = "https://marks-app-api.onrender.com";
 
   const [localToken, setLocalToken] = useState(localStorage.getItem("token"));
   const [isAdmin, setIsAdmin] = useState(localStorage.getItem("admin"));
